@@ -1,13 +1,13 @@
 {
   "files": [
     {
-      "downloadUrl": "/downloads/noteendpoint/v1/20140410202148/java/1.16.0-rc/cloudid.com-noteendpoint-v1-20140410202148-java-1.16.0-rc-sources.jar", 
-      "path": "cloudid.com-noteendpoint-v1-20140410202148-java-1.16.0-rc-sources.jar", 
+      "downloadUrl": "/downloads/noteendpoint/v1/20140412210723/java/1.16.0-rc/cloudid.com-noteendpoint-v1-20140412210723-java-1.16.0-rc-sources.jar", 
+      "path": "cloudid.com-noteendpoint-v1-20140412210723-java-1.16.0-rc-sources.jar", 
       "type": "source", 
-      "timestamp": "2014-04-10 20:21"
+      "timestamp": "2014-04-12 21:07"
     }, 
     {
-      "path": "cloudid.com-noteendpoint-v1-20140410202148-java-1.16.0-rc.jar.properties", 
+      "path": "cloudid.com-noteendpoint-v1-20140412210723-java-1.16.0-rc.jar.properties", 
       "type": "android.properties"
     }
   ], 
@@ -701,5 +701,5 @@
   "version": "v1", 
   "language_version": "1.16.0-rc", 
   "id": "noteendpoint:v1", 
-  "revision": 20140410202148
+  "revision": 20140412210723
 }

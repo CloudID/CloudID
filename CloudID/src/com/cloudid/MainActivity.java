@@ -1,7 +1,7 @@
 package com.cloudid;
 
 import java.io.IOException;
-import java.util.Currency;
+
 import java.util.Date;
 
 import android.os.AsyncTask;
@@ -26,11 +26,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
 
-import android.os.AsyncTask;
-import android.content.Context;
-import android.content.Intent;
 import android.content.IntentSender.SendIntentException;
-import android.content.SharedPreferences;
+
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
@@ -42,17 +39,12 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
 import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
-import com.google.android.gms.internal.cu;
-import com.google.api.client.extensions.android.http.AndroidHttp;
-import com.google.api.client.http.HttpRequest;
-import com.google.api.client.http.HttpRequestInitializer;
-import com.google.api.client.json.jackson.JacksonFactory;
 
-import android.os.Bundle;
-import android.app.Activity;
+
+
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
+
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;

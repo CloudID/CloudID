@@ -1,7 +1,11 @@
 package com.cloudid;
 
+import java.io.IOException;
 import java.io.InputStream;
 
+import com.cloudid.useridendpoint.Useridendpoint;
+import com.cloudid.useridendpoint.model.UserID;
+import com.cloudid.userinfoendpoint.Userinfoendpoint;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
@@ -9,8 +13,14 @@ import com.google.android.gms.common.api.Status;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
 import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
 import com.google.android.gms.plus.Plus;
+import com.google.api.client.extensions.android.http.AndroidHttp;
+import com.google.api.client.http.HttpRequest;
+import com.google.api.client.http.HttpRequestInitializer;
+import com.google.api.client.json.jackson.JacksonFactory;
+import com.md5.MD5hash;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -53,6 +63,7 @@ public class AdminActivity extends FragmentActivity implements AddIdDialogFragme
     	String[] info=intent.getStringArrayExtra(MainActivity.INFO);
     	txtName.setText(info[0]);
     	txtEmail.setText(info[1]);
+    	Toast.makeText(getApplicationContext(), "It is ADMIN"+info[3], Toast.LENGTH_LONG).show();
         
         new LoadProfileImage(imgProfilePic).execute(info[2]);
 	}
@@ -129,6 +140,37 @@ public class AdminActivity extends FragmentActivity implements AddIdDialogFragme
 			bmImage.setImageBitmap(result);
 		}
 	}
+	
+	private class InsertID extends AsyncTask<Context, Integer, String>{
+
+		@Override
+		protected String doInBackground(Context... params) {
+			// TODO Auto-generated method stub
+			Useridendpoint.Builder useridendpoint=new Useridendpoint.Builder(AndroidHttp.newCompatibleTransport(),
+		              new JacksonFactory(),
+		              new HttpRequestInitializer() {
+		              public void initialize(HttpRequest httpRequest) { }
+		              });
+			
+			Useridendpoint userendpoint =CloudEndpointUtils.updateBuilder(useridendpoint).build();
+			try{
+				UserID id= new UserID();
+				id.setFName("Nikhilesh");
+				id.setLName("Payyavuala");
+				id.setDob("07/06/1992");
+				id.setUfID("48914676");
+				id.setUfHash(MD5hash.md5Java("48914676"));
+				id.setTimeStampCreated(System.currentTimeMillis());
+				id.setTimeStampLastAccessed(System.currentTimeMillis());
+				
+				userendpoint.insertUserID(id).execute();
+			}catch(IOException e){
+				
+			}
+			return null;
+		}
+		
+	}
 
 	@Override
 	public void onDialogPositiveClick(DialogFragment dialog) {
@@ -137,7 +179,10 @@ public class AdminActivity extends FragmentActivity implements AddIdDialogFragme
 		Dialog dialogView = dialog.getDialog();
 		//Dialog dialog2 =Dialog.class.cast(dialog);
  	  EditText edit = (EditText) dialogView.findViewById(R.id.username);
- 	 Toast.makeText(getApplicationContext(), "Hi, "+edit.getText().toString(), Toast.LENGTH_SHORT).show();
+ 	 
+ 	 new InsertID().execute(getApplicationContext());
+ 	Toast.makeText(getApplicationContext(), "Done, "+edit.getText().toString(), Toast.LENGTH_SHORT).show();
+ 	 
 	}
 
 	@Override
