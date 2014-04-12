@@ -26,27 +26,6 @@
   "ownerDomain" : "cloudid.com",
   "ownerName" : "cloudid.com",
   "methods" : {
-    "noteendpoint.getNote" : {
-      "path" : "note/{id}",
-      "httpMethod" : "GET",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.cloudid.NoteEndpoint.getNote",
-      "request" : {
-        "parameters" : {
-          "id" : {
-            "type" : "string",
-            "required" : true
-          }
-        },
-        "body" : "empty"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
     "noteendpoint.removeNote" : {
       "path" : "note/{id}",
       "httpMethod" : "DELETE",
@@ -68,17 +47,22 @@
         "body" : "empty"
       }
     },
-    "noteendpoint.updateNote" : {
-      "path" : "note",
-      "httpMethod" : "PUT",
+    "noteendpoint.getNote" : {
+      "path" : "note/{id}",
+      "httpMethod" : "GET",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.cloudid.NoteEndpoint.updateNote",
+      "rosyMethod" : "com.cloudid.NoteEndpoint.getNote",
       "request" : {
-        "body" : "autoTemplate(backendRequest)",
-        "bodyName" : "resource"
+        "parameters" : {
+          "id" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
       },
       "response" : {
         "body" : "autoTemplate(backendResponse)"
@@ -104,6 +88,22 @@
           }
         },
         "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "noteendpoint.updateNote" : {
+      "path" : "note",
+      "httpMethod" : "PUT",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.cloudid.NoteEndpoint.updateNote",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
       },
       "response" : {
         "body" : "autoTemplate(backendResponse)"
@@ -160,17 +160,9 @@
       }
     },
     "methods" : {
-      "com.cloudid.NoteEndpoint.getNote" : {
-        "response" : {
-          "$ref" : "Note"
-        }
-      },
       "com.cloudid.NoteEndpoint.removeNote" : {
       },
-      "com.cloudid.NoteEndpoint.updateNote" : {
-        "request" : {
-          "$ref" : "Note"
-        },
+      "com.cloudid.NoteEndpoint.getNote" : {
         "response" : {
           "$ref" : "Note"
         }
@@ -178,6 +170,14 @@
       "com.cloudid.NoteEndpoint.listNote" : {
         "response" : {
           "$ref" : "CollectionResponse_Note"
+        }
+      },
+      "com.cloudid.NoteEndpoint.updateNote" : {
+        "request" : {
+          "$ref" : "Note"
+        },
+        "response" : {
+          "$ref" : "Note"
         }
       },
       "com.cloudid.NoteEndpoint.insertNote" : {

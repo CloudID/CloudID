@@ -8,6 +8,8 @@ public class UserID {
 
 	@Id
 	private String UfHash;
+	@Id
+	private String lastLocation;
 	private String UfID;
 	private String fName;
 	private String lName;
