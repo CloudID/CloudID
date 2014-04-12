@@ -124,6 +124,27 @@
       "response" : {
         "body" : "empty"
       }
+    },
+    "userinfoendpoint.getCount" : {
+      "path" : "void/{id}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.cloudid.UserInfoEndpoint.getCount",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
+      }
     }
   },
   "descriptor" : {
@@ -191,6 +212,8 @@
         }
       },
       "com.cloudid.UserInfoEndpoint.removeUserInfo" : {
+      },
+      "com.cloudid.UserInfoEndpoint.getCount" : {
       }
     }
   }

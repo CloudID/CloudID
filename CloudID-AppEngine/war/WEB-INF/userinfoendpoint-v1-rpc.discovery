@@ -1,6 +1,6 @@
 {
  "kind": "discovery#rpcDescription",
- "etag": "\"IneSQDZRISaU6plvxbhHIOAs-WY/vz8BsZYEMtEq1u4sPyW97-22ZxY\"",
+ "etag": "\"IneSQDZRISaU6plvxbhHIOAs-WY/B_kX-xfmpnZ4cGQN6fl4-YDRCF8\"",
  "discoveryVersion": "v1",
  "id": "userinfoendpoint:v1",
  "name": "userinfoendpoint",
@@ -107,6 +107,22 @@
   }
  },
  "methods": {
+  "userinfoendpoint.getCount": {
+   "id": "userinfoendpoint.getCount",
+   "allowGet": true,
+   "parameters": {
+    "id": {
+     "type": "string",
+     "required": true
+    }
+   },
+   "parameterOrder": [
+    "id"
+   ],
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
   "userinfoendpoint.getUserInfo": {
    "id": "userinfoendpoint.getUserInfo",
    "allowGet": true,

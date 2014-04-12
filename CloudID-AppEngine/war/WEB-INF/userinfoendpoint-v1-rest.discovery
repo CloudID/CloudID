@@ -1,6 +1,6 @@
 {
  "kind": "discovery#restDescription",
- "etag": "\"IneSQDZRISaU6plvxbhHIOAs-WY/vz8BsZYEMtEq1u4sPyW97-22ZxY\"",
+ "etag": "\"IneSQDZRISaU6plvxbhHIOAs-WY/B_kX-xfmpnZ4cGQN6fl4-YDRCF8\"",
  "discoveryVersion": "v1",
  "id": "userinfoendpoint:v1",
  "name": "userinfoendpoint",
@@ -109,6 +109,24 @@
   }
  },
  "methods": {
+  "getCount": {
+   "id": "userinfoendpoint.getCount",
+   "path": "void/{id}",
+   "httpMethod": "GET",
+   "parameters": {
+    "id": {
+     "type": "string",
+     "required": true,
+     "location": "path"
+    }
+   },
+   "parameterOrder": [
+    "id"
+   ],
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
   "getUserInfo": {
    "id": "userinfoendpoint.getUserInfo",
    "path": "userinfo/{id}",
